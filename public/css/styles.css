@@ -1,0 +1,152 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+h1, h2, h4{
+    color: #03256c;
+}
+/* header section */
+
+
+/* heading section */
+#heading{
+    background-color: #f5f5f5;
+    text-align: center;
+    background-image: url('https://ecowarriorprincess.net/wp-content/uploads/2017/12/Happiness-of-poor-children.-Can-we-really-step-outside-our-bubbles-to-make-a-better-world.jpg');
+}
+
+.big-heading{
+    color: #f5f5f5;
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 4rem;
+    padding-right: 2rem;
+}
+.heading-image{
+    margin: auto;
+    width: 100%;
+    height: 70%;
+}
+.myButton {
+	background-color:#03256c;
+	border-radius:32px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	padding:14px 22px;
+    text-decoration:none;
+    margin: 1rem;
+}
+.myButton:hover {
+    background-color: #f5f5f5;
+    color: #03256c;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+.m{
+    margin-bottom: 240px;
+}
+
+/* middle section */
+#middle{
+    margin: 4rem 1rem;
+}
+.middle-ele{
+    text-align: center;
+    padding-bottom: 2rem;
+    font-weight: bold;
+}
+.middle-icon{
+    font-size: 4rem; 
+    color:#03256c
+}
+
+/* carousel section */
+#caro{
+    text-align: center;
+    padding: 3rem 0;
+    background-color:#16264c;
+}
+
+.caro-head{
+    color: #f5f5f5;
+}
+
+.caro-img{
+    width: 60%;
+    height: 60%;
+}
+
+.caro-para{
+    color: #f5f5f5;
+}
+
+
+/*popup box styling*/
+.popup{
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 110%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-img{
+    display: block;
+    align-items: center;
+}
+
+.popup-content{
+    align-items: center;
+    width: 40%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.popup-input{
+    margin: 20px auto;
+    display: block;
+    width: 50%;
+    padding: 8px;
+    border: 1px solid grey;
+}
+
+.popup-button{
+    margin: 20px auto;
+    display: block;
+    padding: 0.3rem 3rem;
+}
+
+
+@media screen and (max-width: 1200px) {
+    #heading{
+        background-color: black;
+    }
+    .big-heading{
+        padding-top: 1rem;
+        text-align: center;
+    }
+    .m{
+        margin-bottom: 100px;
+    }
+    .popup-content{
+        width: 95%;
+    }
+    .popup-input{
+        width: 90%;
+    }
+    .donate{
+        display: block;
+        padding: 0 20px;
+        font-size: medium;
+    }
+  }
+

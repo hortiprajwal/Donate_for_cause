@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate For Cause</title>
+
+    <!-- stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1902f3680d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #f5f5f5">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/" style="font-size: 3rem; color: #03256c; font-weight: 600; padding-left: 2rem; font-family: 'Dancing Script', cursive;">help++</a>
+              <button class="navbar-toggler" style="color: #03256c;  background-color: #03256c;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: #03256c;"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link active fs-5" style="color:#03256c; padding-right: 2rem;" href="/login/user">Logout</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fs-5 items" style="color:#03256c; padding-right: 2rem;" href="/transaction/<%=username%>">All Transactions</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    <div class="my-3 p-3 bg-body rounded shadow-sm col-sm-12">
+        <h6 class="border-bottom pb-2 mb-0">All Transactions</h6>
+        <%trans.forEach(function(tr){%>
+            <% if(tr.username == username){ %>
+            <div class="d-flex text-muted pt-3" style="padding: 20px;">
+            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+        
+            <p class="pb-3 mb-0 small lh-sm border-bottom">
+                <strong class="d-block text-gray-dark" style="display: block;font-size: 25px;"><%=tr.ngoname%></strong>
+                <%=tr.date%>  
+                <p style="display: block; margin-left: 50px;">Amount: <%=tr.amount%></p>
+                <p style="display: block; margin-left: 50px;">Status: <%= tr.status%></p>
+            </p>
+            </div>
+        <% }}); %>
+    </div>
+
+    <button style="text-align: right; margin: 5% auto;" class="btn myButton popup-button donate" onclick="goBack()">Go Back</button>
+
+    <script>
+    function goBack() {
+    window.history.back();
+    }
+    </script>
+
+
+<%- include("partials/footer") -%>

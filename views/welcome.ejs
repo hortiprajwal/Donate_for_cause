@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate For Cause</title>
+
+    <!-- stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1902f3680d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #f5f5f5">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/" style="font-size: 3rem; color: #03256c; font-weight: 600; padding-left: 2rem; font-family: 'Dancing Script', cursive;">help++</a>
+              <button class="navbar-toggler" style="color: #03256c;  background-color: #03256c;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: #03256c;"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link active fs-5" style="color:#03256c; padding-right: 2rem;" href="/login/user">Logout</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fs-5 items" style="color:#03256c; padding-right: 2rem;" href="/transaction/<%=user.username%>">All Transactions</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+
+<h1 style="margin: 20px;">Welcome <%=user.fullname %>,</h1>
+
+
+
+<div class="row" data-masonry='{"percentPosition": true }'>
+<% ngos.forEach(function(ngo){ %>
+    <% if(ngo.status==1){ %>
+    <div class="col-sm-6 col-lg-4 col-md-6" style="padding: 40px;">
+        <div class="card">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+            <div class="card-body">
+                <h5 class="card-title"><%= ngo.username %></h5>
+                <p class="card-text"><%= ngo.description %></p>
+                <p class="card-text" style="display: inline; float: left;"><%= ngo.state %>,<%= ngo.country %></p>
+                  <button name="but" value="" data-id="but" class="popup-button myButton btn donate" data-bs-toggle="modal" data-bs-target='#<%=ngo.username.split(" ")[0]%>' style="margin-right: 10px;">
+                    Donate
+                  </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+<div class="modal fade" id='<%=ngo.username.split(" ")[0]%>' tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLongTitle">Enter Amount</h4>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/transaction" method="post">
+          <div class="modal-body">
+              <div class="input-group mb-3">
+                  <span class="input-group-text">Rs.</span>
+                  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="amount" required>
+                  <span class="input-group-text">.00</span>
+                  <input type="hidden" name="ngoname" value="<%=ngo.username%>" type="text" class="form-control" required />
+              </div>
+          </div>
+          <button id="but" name="username" value="<%=user.username%>" type="submit" class="popup-button myButton btn" style="margin: 0 auto;">Continue</button>
+          <br>
+      </form>
+    </div>
+  </div>
+</div>
+    <% }}); %>
+</div>
+
+
+
+<%- include("partials/footer") -%>

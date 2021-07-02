@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login <%= type %> Page</title>
+    <!--stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat&display=swap" rel="stylesheet">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <img style="overflow:hidden; width: 100%; height: 130%;" src="https://ecowarriorprincess.net/wp-content/uploads/2017/12/Happiness-of-poor-children.-Can-we-really-step-outside-our-bubbles-to-make-a-better-world.jpg" alt="company logo">
+    <div class ="popup">
+        <div class="popup-content">
+            <img src="/images/Logo.PNG"  class="popup-img" alt="Company logo"><br>
+            <%- include("partials/message") -%>
+            <form action="/login" method="post">
+                <h2 style="margin: 20px auto; text-align: center;"><%=type %> Login</h2>
+                <input class="popup-input" type="username" name="username" placeholder="<%=name%>">
+                <input class="popup-input" type="password" name="password" placeholder="Password">
+                <button class="myButton popup-button btn" type="submit" name="button" value="<%=type%>">Login</button>
+            </form>
+            <br>
+            <% if(type==="NGO"){ %>
+            <a href="/details" class="popup-a" style="margin: 0 5%">New <%=type%> Registration?</a>
+            <%}else{%>
+            <a href="/userReg" class="popup-a" style="margin: 0 5%">New <%=type%> Registration?</a>
+            <%}%>
+        </div>
+    </div>
+</body>
+</html>

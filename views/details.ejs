@@ -1,0 +1,155 @@
+<%- include("partials/header") -%>
+
+<div class="container">
+    <main>
+      <div class="py-5 text-center">
+        <h2>Enter your details</h2>
+        <p class="lead">For registration as an NGO you are required to provide valid information and <spam style="font-weight: bold;">NGO Government Registration</spam> certificate.</p>
+      </div>
+      <%- include("partials/message") -%>
+      <div class="row g-3">
+        
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">Information Page</h4>
+          <form class="needs-validation" action="/loginngo" method="post">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="firstName" class="form-label">NGO Title</label>
+                <input type="text" class="form-control" id="firstName" name="username" required>
+                <div class="invalid-feedback">
+                  Pllease Enter valid NGO name.
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label">Set Password</label>
+                <input type="password" class="form-control" id="lastName" name="password">
+                <div class="invalid-feedback">
+                  Please enter a valid password.
+                </div>
+              </div> 
+  
+  
+              <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="you@example.com" name="email" required>
+                <div class="invalid-feedback">
+                  Please enter a valid email address.
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="email" placeholder="000-000-0000"  name="phoneNo" required>
+                <div class="invalid-feedback">
+                  Please enter a valid phone number.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Description <span class="text-muted">(To gain attention of Donators)</span></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" required></textarea>
+              </div>
+  
+              <div class="col-12">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="adress1" required>
+                <div class="invalid-feedback">
+                  Please enter your NGO located adress.
+                </div>
+              </div>
+  
+              <div class="col-12">
+                <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
+                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite" name="adress2">
+              </div>
+  
+              <div class="col-md-5">
+                <label for="country" class="form-label">Country</label>
+                <select name="country" class="form-select" id="country" required>
+                  <option value="">Choose...</option>
+                  <option name="option" value="india">India</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+              </div>
+  
+              <div class="col-md-4">
+                <label for="state" class="form-label">State</label>
+                <select name="state" class="form-select" id="state" required>
+                  <option value="">Choose...</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                    <option value="Daman and Diu">Daman and Diu</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Lakshadweep">Lakshadweep</option>
+                    <option value="Puducherry">Puducherry</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
+  
+              <div class="col-md-3">
+                <label for="zip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="zip" placeholder="" name="zip" required>
+                <div class="invalid-feedback">
+                  Zip code required.
+                </div>
+              </div>
+            </div>
+  
+            <br>
+  
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="same-address" required>
+              <label class="form-check-label" for="same-address">I agree to <a href="#">Terms and Conditions</a></label>
+            </div>
+   
+            <br>
+            <div style="text-align: center; margin:auto;">
+                <button class="w-100 btn btn-lg myButton" type="submit">Continue as NGO</button>
+            </div>
+            <br><br>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    </footer>
+  </div>
+
+
+
+<%- include("partials/footer") -%>
